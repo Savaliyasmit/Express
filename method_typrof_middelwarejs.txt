@@ -1,0 +1,46 @@
+middelware mens when runs in first after all request run
+using next () not write so your website reload in loop
+
+application level middlewar :-
+using  app.use
+
+ex:-
+// appllication level middelware
+// app.use((req,res,next)=>{
+//     console.log(req.query);
+//         if(req.query.password == '12345'){
+//             next()
+//         }else{
+//             res.sendStatus(401);
+//         }
+// })
+
+req.query was empty object when write query string like demo.com/demo/?password=12345
+it gives object
+
+
+req.get method get hostname,ip,method like get 
+
+2.routing level middelware :-
+ex:-
+// routing level middelware
+const authantication = (req,res,next)=>{
+    console.log(req.query);
+        if(req.query.password == '12345'){
+            next()
+        }else{
+            res.sendStatus(401);
+        }
+}
+
+app.get('/',authantication,(req,res)=>{
+    res.json({method:"get method 1"})
+})
+
+this are only works on routes  you choose anyone to use middelware in route
+
+browser always give get method
+
+this called rest api loke get post put delete
+
+postman was api testing tools  for your application

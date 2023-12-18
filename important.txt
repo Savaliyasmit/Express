@@ -1,0 +1,12 @@
+modules:-
+1.cors
+core use for you have work in project frontedside and backendside 
+it was all work in diffrent difftrent ports you combined them 
+
+
+imp:-
+// buliting middelwares when your project use always this middleware like  :-
+// express.json  when data get in the body in html tag
+// express.urlencoded when data in from frotendside like form data
+// last is use for static file :-
+// express.static()

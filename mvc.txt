@@ -1,0 +1,6 @@
+Model–view–controller
+controller :- control your api
+routes:-
+models:-database schema 
+
+use.router
