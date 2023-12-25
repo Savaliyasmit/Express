@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const productRoutes = require("./routes/products.routes.js");
 const mongoose = require("mongoose");
 const userRoutes = require('./routes/users.routes.js')
+const authRoutes = require("./routes/auth.routes.js")
 
 async function connectDatabase() {
   await mongoose.connect(process.env.MONGO_DB_URL);
@@ -25,6 +26,7 @@ app.use(express.json());
 //Router middelwar 
 app.use("/api/product", productRoutes);
 app.use("/api/user",userRoutes);
+app.use("api/auth",authRoutes);
 
 
 
