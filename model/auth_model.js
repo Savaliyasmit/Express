@@ -14,7 +14,7 @@ const authSchema = new mongoose.Schema({
     require: true,
     unique: true,
   },
-profileImage: {
+  profileImage: {
     type: String,
 },
   gender: {

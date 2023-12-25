@@ -12,3 +12,4 @@ const storage = multer.diskStorage({
 exports.upload = multer({ storage: storage })
 
 // /\s+/g this + mens all space
+// public/images mens folder images

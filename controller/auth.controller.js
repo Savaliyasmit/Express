@@ -5,7 +5,7 @@ if(req.file){
     req.body.profileImage = `${req.file.path}`
 }
 let newAuth = await Auth.create({
-    ...req.body
+    ...req.body,
 })
 newAuth.save();
 res.json({Auth:newAuth})
