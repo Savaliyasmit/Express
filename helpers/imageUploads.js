@@ -8,7 +8,6 @@ const storage = multer.diskStorage({
      cb(null , `${Date.now()}_${file.originalname.replace(/\s+/g,'_')}`)
     }
   })
-  
 exports.upload = multer({ storage: storage })
 
 // /\s+/g this + mens all space

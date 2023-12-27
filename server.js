@@ -7,7 +7,8 @@ const productRoutes = require("./routes/products.routes.js");
 const mongoose = require("mongoose");
 const userRoutes = require('./routes/users.routes.js')
 const authRoutes = require("./routes/auth.routes.js")
-const path = require("path")
+const path = require("path");
+const cartRoutes = require('./routes/cart.routes.js');
 const imagePath = path.join(__dirname,'public','images')
 
 async function connectDatabase() {
@@ -29,7 +30,8 @@ app.use('/public/images',express.static(imagePath));
 //Router middelwar 
 app.use("/api/product", productRoutes);
 app.use("/api/user",userRoutes);
-app.use("api/auth",authRoutes);
+app.use("/api/auth",authRoutes);
+app.use("/api/cart",cartRoutes);
 
 
 

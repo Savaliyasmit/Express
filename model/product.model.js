@@ -8,7 +8,6 @@ const productSchema = new mongoose.Schema({
 description: String,
     price: Number,
     brand: String,
-    brand: String,
 category: [String],
 isDelete: {
   type: Boolean,

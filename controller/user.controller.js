@@ -1,5 +1,6 @@
 const User = require("../model/user.model.js");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.signupUser = async (req, res) => {
   try {
@@ -36,7 +37,12 @@ try{
     if(!checkPassword){
       return res.json({message:"Password is not matched"})
     }
-    res.json({message:"your login sucessfully",user})
+    let payload = {
+      userId: user._id
+    }
+    let token = jwt.sign(payload, process.env.SECRET_KEY);
+
+    res.json({token, message:"your login sucessfully",user})
 }catch (error) {
   console.log(error);
   res.status(500).json("Internal Server Error..");
@@ -45,8 +51,8 @@ try{
 
 exports.getUsers = async (req, res) => {
   try {
-    users = await User.find({ isDelete: false });
-    res.json(users)
+    let users = await User.find({ isDelete: false });
+    res.json(users);
     } catch (error) {
     console.log(error);
     res.status(500).json("Internal Server Error..");
