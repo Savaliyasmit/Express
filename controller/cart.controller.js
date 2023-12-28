@@ -27,3 +27,14 @@ exports.addToCart = async (req, res) => {
     res.json({ message: "Server Error" });
   }
 };
+
+exports.getAllCart = async(req,res)=>{
+  try {
+    let cart = Cart.find({isDelete:false})
+     res.json(cart)
+  } catch (error) {
+    console.log(console.error());
+    res.status(500).json({ messsage: "Internal Server Error.." });
+  }
+     
+}

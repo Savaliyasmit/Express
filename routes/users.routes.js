@@ -14,7 +14,7 @@ userRoutes.post("/signup", signupUser);
 
 userRoutes.post("/login", loginUser);
 
-userRoutes.get("/", verifyToken, getUsers);
+userRoutes.get("/",verifyToken, getUsers);
 
 userRoutes.get("/:id", getUser);
 
