@@ -9,6 +9,7 @@ const userRoutes = require('./routes/users.routes.js')
 const authRoutes = require("./routes/auth.routes.js")
 const path = require("path");
 const cartRoutes = require('./routes/cart.routes.js');
+const orderRoutes = require('./routes/order.routes.js');
 const imagePath = path.join(__dirname,'public','images')
 
 async function connectDatabase() {
@@ -32,6 +33,7 @@ app.use("/api/product", productRoutes);
 app.use("/api/user",userRoutes);
 app.use("/api/auth",authRoutes);
 app.use("/api/cart",cartRoutes);
+app.use("/api/order",orderRoutes);
 
 
 

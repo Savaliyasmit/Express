@@ -30,10 +30,10 @@ exports.addToCart = async (req, res) => {
 
 exports.getAllCart = async(req,res)=>{
   try {
-    let cart = Cart.find({isDelete:false})
-     res.json(cart)
+    let cart = await Cart.find({user:req.user._id,isDelete:false})
+     res.json(cart);
   } catch (error) {
-    console.log(console.error());
+    console.log(error);
     res.status(500).json({ messsage: "Internal Server Error.." });
   }
      

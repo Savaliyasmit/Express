@@ -3,6 +3,6 @@ const {verifyToken} = require('../helpers/verifyToken');
 const {addToCart,getAllCart} = require('../controller/cart.controller');
 
 cartRoutes.post('/add-cart', verifyToken, addToCart);
-cartRoutes.get('/Allcarts',getAllCart);
+cartRoutes.get('/all-carts',verifyToken, getAllCart);
 
 module.exports = cartRoutes;
