@@ -9,13 +9,7 @@ exports.createNewProduct = async (req, res) => {
     if (product) {
       return res.json("product is already exits");
     }
-    product = await Product.create({
-      title,
-      description,
-      price,
-      brand,
-      category,
-    });
+    product = await Product.create({title,description,price,brand,category,});
     product.save();
     res.json({ messsage: "product created", product });
   } catch (error) {
@@ -25,9 +19,9 @@ exports.createNewProduct = async (req, res) => {
 };
 
 //   get all products
-exports.getAllProduct = async (req, res) => {
+exports.getAllProducts = async (req, res) => {
   try {
-    let products = await Product.find({ isDelete: false});
+    let products = await Product.find({ isDelete: false });
     res.json(products);
   } catch (error) {
     console.log(error);
@@ -83,7 +77,7 @@ exports.deleteProduct = async (req, res) => {
 
     product = await Product.findByIdAndUpdate(
       id,
-      { isDelete:true},
+      { isDelete: true },
       { new: true }
     );
     // product = await Product.findOneAndDelete({ _id: id });
@@ -93,4 +87,3 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({ messsage: "Internal Server Error.." });
   }
 };
-

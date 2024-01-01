@@ -3,7 +3,7 @@ const productRoutes = express.Router();
 
 const {
   createNewProduct,
-  getAllProduct,
+  getAllProducts,
   getProduct,
   updateProduct,
   deleteProduct
@@ -12,7 +12,7 @@ const {
 // get all data from products
 productRoutes.post("/", createNewProduct);
 
-productRoutes.get("/", getAllProduct);
+productRoutes.get("/", getAllProducts);
 
 // get spcific data
 productRoutes.get("/:id", getProduct);

@@ -4,22 +4,20 @@ const { verifyToken } = require("../helpers/verifyToken.js");
 const {
   signupUser,
   loginUser,
-  getUsers,
-  getUser,
+  getUserProfile,
   updateUser,
-  deleteUser,
+  resetPassword
+  
 } = require("../controller/user.controller.js");
 
 userRoutes.post("/signup", signupUser);
 
-userRoutes.post("/login",verifyToken,loginUser);
+userRoutes.post("/login",loginUser);
 
-userRoutes.get("/",verifyToken, getUsers);
+userRoutes.get("/profile",verifyToken, getUserProfile);
 
-userRoutes.get("/:id", getUser);
+userRoutes.patch("/update-profile", verifyToken,updateUser);
 
-userRoutes.patch("/:id", updateUser);
-
-userRoutes.delete("/:id", deleteUser);
+userRoutes.post("/reset-password", verifyToken,resetPassword);
 
 module.exports = userRoutes;
