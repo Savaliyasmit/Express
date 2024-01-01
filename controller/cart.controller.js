@@ -8,7 +8,7 @@ exports.addToCart = async (req, res) => {
       cartItem: req.body.cartItem,
       isDelete: false
     });
-
+        // validation cart item not add dublicate and product was not found cart not add 
     if(cart){
         return res.json({message: 'Cart already exist'});
     }
@@ -16,6 +16,7 @@ exports.addToCart = async (req, res) => {
     if(!product){
         return res.json({message: 'Product is not found'});
     }
+// cart crate
     let newCart = await Cart.create({
         user: req.user._id,
         ...req.body

@@ -3,13 +3,14 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT
 const morgan = require("morgan");
-const productRoutes = require("./routes/products.routes.js");
+
 const mongoose = require("mongoose");
-const userRoutes = require('./routes/users.routes.js')
 const authRoutes = require("./routes/auth.routes.js")
-const path = require("path");
+const userRoutes = require('./routes/users.routes.js')
+const productRoutes = require("./routes/products.routes.js");
 const cartRoutes = require('./routes/cart.routes.js');
 const orderRoutes = require('./routes/order.routes.js');
+const path = require("path");
 const imagePath = path.join(__dirname,'public','images')
 
 async function connectDatabase() {

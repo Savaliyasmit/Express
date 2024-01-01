@@ -12,7 +12,7 @@ const {
 
 userRoutes.post("/signup", signupUser);
 
-userRoutes.post("/login", loginUser);
+userRoutes.post("/login",verifyToken,loginUser);
 
 userRoutes.get("/",verifyToken, getUsers);
 
