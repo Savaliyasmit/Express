@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 exports.signupUser = async (req, res) => {
   try {
-    let { firstname, lastname, email, password, gender } = req.body;
+    let { firstname, lastname, email, password, gender} = req.body;
     let user = await User.findOne({ email: email, isDelete: false });
     if (user) {
       return res.json({ meassage: "user already exists..." });
